@@ -13,3 +13,21 @@ export const addNewOffer = (req, res) => {
         res.json(contact);
     });
 };
+
+export const getOffers = (req, res) => {
+    Offer.find({}, (err, offers) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(offers);
+    });
+};
+
+export const getOfferWithId = (req, res) => {
+    Offer.findById(req.params.offerId, (err, offer) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(offer);
+    });
+}
