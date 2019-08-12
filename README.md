@@ -8,3 +8,20 @@ Without babel, nodemon would return an error, because we wouldn't be able to run
 ```
 ## Middleware
 Middleware are functions that have access to request and response object in our express application. It can make changes to req/res object, stop, next, etc.
+
+## Mongodb on MAC
+Once you install mongodb, create the following dir and go to your db directory (sudo'ing if needed)
+```
+mkdir -p /data/db
+cd /data/db
+```
+
+Run this cmd to complete read/write access
+```
+sudo chmod 0755 /data/db sudo chown $USER /data/db
+```
+
+Run mongo daemon in a terminal to start listening on default port 27017
+```
+mongod
+```
