@@ -1,4 +1,4 @@
-import { addNewOffer, getOffers, getOfferWithId, updateOffer } from '../controllers/offerController';
+import { addNewOffer, getOffers, getOfferWithId, updateOffer, deleteOffer } from '../controllers/offerController';
 
 /** Injecting app object, because we're going to use routes function in order to pass the endpoints created here. */
 const routes = (app) => {
@@ -14,9 +14,7 @@ const routes = (app) => {
     app.route('/offers/:offerId')
         .get(getOfferWithId) // get specific offer
         .put(updateOffer) // put request
-        .delete((req, res) =>
-            res.send('DELETE request successful')
-        );
+        .delete(deleteOffer);
 }
 
 export default routes; // es6 syntax. no way to use it without export.

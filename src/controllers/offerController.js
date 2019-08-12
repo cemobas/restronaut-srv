@@ -41,3 +41,12 @@ export const updateOffer = (req, res) => {
         res.json(offer);
     })
 }
+
+export const deleteOffer = (req, res) => {
+    Offer.remove({ _id: req.params.offerId }, (err, offer) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json({ message: 'Successfully deleted offer'});
+    })
+}
