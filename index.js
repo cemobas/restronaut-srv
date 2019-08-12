@@ -18,6 +18,9 @@ app.use(bodyParser.json());
 
 routes(app);
 
+// serving static files
+app.use(express.static('public'));
+
 app.get('/', (req, res) => 
     /** `text` instead of 'text', because `` is es6 syntax. This way we can inject a variable like PORT */
     res.send(`Node and express server is running on port ${PORT}`)
