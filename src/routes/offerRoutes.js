@@ -1,4 +1,4 @@
-import { addNewOffer, getOffers, getOfferWithId } from '../controllers/offerController';
+import { addNewOffer, getOffers, getOfferWithId, updateOffer } from '../controllers/offerController';
 
 /** Injecting app object, because we're going to use routes function in order to pass the endpoints created here. */
 const routes = (app) => {
@@ -12,12 +12,8 @@ const routes = (app) => {
         .post(addNewOffer);
         
     app.route('/offers/:offerId')
-        .get(getOfferWithId); // get specific offer
-
-    app.route('/offers/:offerId')
-        .put((req, res) =>
-            res.send('PUT request successful')
-        )
+        .get(getOfferWithId) // get specific offer
+        .put(updateOffer) // put request
         .delete((req, res) =>
             res.send('DELETE request successful')
         );

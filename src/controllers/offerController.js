@@ -31,3 +31,13 @@ export const getOfferWithId = (req, res) => {
         res.json(offer);
     });
 }
+
+export const updateOffer = (req, res) => {
+    /** "new: true" means you want the new (updated) data in the response (not the old data) */
+    Offer.findOneAndUpdate({ _id: req.params.offerId}, req.body, { new: true }, (err, offer) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(offer);
+    })
+}
