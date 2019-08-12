@@ -1,14 +1,19 @@
 /** Injecting app object, because we're going to use routes function in order to pass the endpoints created here. */
 const routes = (app) => {
-    app.route('/venue')
-        .get((req, res) =>
+    app.route('/venues')
+        .get((req, res, next) => {
+            // middleware (see README)
+            console.log(`Request from: ${req.originalUrl}`);
+            console.log(`Request type: ${req.method}`);
+            next();
+        }, (req, res, next) =>
             res.send('GET request successful')
         )
         .post((req, res) =>
             res.send('POST request successful')
         );
 
-    app.route('/venue/:venueId')
+    app.route('/venues/:venueId')
         .put((req, res) =>
             res.send('PUT request successful')
         )

@@ -6,3 +6,5 @@ Without babel, nodemon would return an error, because we wouldn't be able to run
 ```
 "start": "nodemon ./index.js --exec babel-node -e js"
 ```
+## Middleware
+Middleware are functions that have access to request and response object in our express application. It can make changes to req/res object, stop, next, etc.
